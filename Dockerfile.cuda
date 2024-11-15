@@ -37,4 +37,5 @@ RUN pip install numpy onnxruntime-gpu gradio insightface opencv-python
 RUN python install.py --onnxruntime cuda --skip-conda
 
 # Add the CMD instruction at the end
+EXPOSE 7860
 CMD ["python", "/facefusion/facefusion.py", "run", "--execution-providers", "cuda"]
