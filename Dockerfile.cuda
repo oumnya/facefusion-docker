@@ -2,6 +2,7 @@ FROM nvidia/cuda:12.5.1-cudnn-runtime-ubuntu20.04
 ARG FACEFUSION_VERSION=3.0.1
 ENV GRADIO_SERVER_NAME=0.0.0.0
 ENV PIP_BREAK_SYSTEM_PACKAGES=1
+ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /facefusion
 RUN apt-get update && apt-get install -y \
     python3.12 \
