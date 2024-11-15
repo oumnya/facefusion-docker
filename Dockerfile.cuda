@@ -13,4 +13,8 @@ RUN apt-get update && apt-get install -y \
     ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/facefusion/facefusion.git --branch ${FACEFUSION_VERSION} --single-branch .
+
+# Install numpy and other required dependencies before running install.py
+RUN pip install numpy onnxruntime-gpu gradio insightface opencv-python
+
 RUN python install.py --onnxruntime cuda --skip-conda
